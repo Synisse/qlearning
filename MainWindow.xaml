@@ -1,0 +1,51 @@
+﻿<Window x:Class="MachineLearningQLearning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Q-Learning" Height="641" Width="905">
+    <Window.Resources>
+        <DataTemplate x:Key="DataTemplate_Level2">
+            <Label Content="{Binding}" Height="30" Width="40" Margin="1,1,1,1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DataTemplate_Level1">
+            <ItemsControl ItemsSource="{Binding}" ItemTemplate="{DynamicResource DataTemplate_Level2}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </DataTemplate>
+        </Window.Resources>
+
+        <Grid>
+        <DataGrid Name="StateGrid" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="43,152,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="State 1" Width="100" Binding="{Binding StateOne}"/>
+                <DataGridTextColumn Header="State 2" Width="100" Binding="{Binding StateTwo}"/>
+                <DataGridTextColumn Header="Reward" Width="100" Binding="{Binding Reward}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="gammaTB" HorizontalAlignment="Left" Height="23" Margin="43,36,0,0" TextWrapping="Wrap" Text="0.8" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Gamma" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="cycleTB" HorizontalAlignment="Left" Height="23" Margin="168,36,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Numer of training episodes" HorizontalAlignment="Left" Margin="168,10,0,0" VerticalAlignment="Top" Width="155"/>
+        <TextBox Name="goalTB" HorizontalAlignment="Left" Height="23" Margin="328,36,0,0" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="155"/>
+        <Label Content="Goal State" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button Content="Train Step" HorizontalAlignment="Left" Margin="360,152,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Train" HorizontalAlignment="Left" Margin="360,192,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Name="initB"  Content="Initialise" HorizontalAlignment="Left" Margin="43,75,0,0" VerticalAlignment="Top" Width="440" Height="35" Click="initB_Click"/>
+
+        <ItemsControl x:Name="lst" Margin="452,152,35,42" BorderThickness="1" BorderBrush="Black" ItemTemplate="{DynamicResource DataTemplate_Level1}"/>
+        <Label Content="Overall Cycles" HorizontalAlignment="Left" Margin="360,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,-0.077"/>
+        <Label Name="allCycleLabel" Content="0" HorizontalAlignment="Left" Margin="360,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,-0.077"/>
+        <Label Content="Current Cycles" HorizontalAlignment="Left" Margin="360,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,-0.077"/>
+        <Label x:Name="currentCycleLabel" Content="0" HorizontalAlignment="Left" Margin="360,320,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,-0.077"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="461" Margin="10,140,0,0" VerticalAlignment="Top" Width="877"/>
+        <Button Content="Estimate best route" HorizontalAlignment="Left" Margin="578,64,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_3"/>
+        <Label Content="Start state" HorizontalAlignment="Left" Margin="578,10,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="StartStateTB" HorizontalAlignment="Left" Height="23" Margin="578,36,0,0" TextWrapping="Wrap" Text="C" VerticalAlignment="Top" Width="120"/>
+        <Label Name="RouteLabel" Content="Label" HorizontalAlignment="Left" Margin="645,91,0,0" VerticalAlignment="Top"/>
+        <Label Content="Best route:" HorizontalAlignment="Left" Margin="578,91,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

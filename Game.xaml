@@ -1,0 +1,18 @@
+﻿<Page x:Class="MachineLearningQLearning.Game"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:control="clr-namespace:NeuralNetwork.Control"
+      mc:Ignorable="d"
+	Title="Game2">
+
+    <Grid Name="MainGrid">
+        <Grid>
+            <control:CoordinateGrid x:Name="MainCoordinateGrid" CurrentTile="WALL" Height="256" Width="256" ItemSize="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <!--<Frame Name="testFrame">
+            
+        </Frame>-->
+            
+    </Grid>
+</Page>
